@@ -1,0 +1,27 @@
+{
+  "name": "com.mycore.authkit",
+  "version": "0.1.0",
+  "displayName": "AuthKit",
+  "description": "Reusable native sign-in for Unity (Sign in with Apple + Google Sign-In). Plain-class providers (no singleton) returning a provider-neutral AuthCredential via UniTask; backend-linking and persistence stay in your app. Each provider is a separate assembly gated by a define constraint, so projects pull in only the SDKs they use.",
+  "unity": "2021.3",
+  "documentationUrl": "https://github.com/thinhtranbmt/authkit-unity#readme",
+  "changelogUrl": "https://github.com/thinhtranbmt/authkit-unity/blob/main/CHANGELOG.md",
+  "licensesUrl": "https://github.com/thinhtranbmt/authkit-unity/blob/main/LICENSE.md",
+  "keywords": [
+    "auth",
+    "sign-in",
+    "apple",
+    "google",
+    "unitask"
+  ],
+  "author": {
+    "name": "MyCore"
+  },
+  "samples": [
+    {
+      "displayName": "App Auth Adapter (template)",
+      "description": "How to turn an AuthCredential into a backend link + persistence (guarded by AUTHKIT_SAMPLES).",
+      "path": "Samples~/RoxaneAuthAdapter"
+    }
+  ]
+}

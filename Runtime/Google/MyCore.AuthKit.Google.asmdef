@@ -1,0 +1,20 @@
+{
+    "name": "MyCore.AuthKit.Google",
+    "rootNamespace": "AuthKit",
+    "references": [
+        "MyCore.AuthKit",
+        "UniTask",
+        "GoogleSignin"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "AUTHKIT_GOOGLE"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
