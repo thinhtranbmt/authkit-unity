@@ -22,7 +22,7 @@ stay in **your** app. Mirrors the `HttpKit` / `IAPKit` convention.
 |---|---|---|
 | Core | — | UniTask (required, install separately) |
 | Apple | define `AUTHKIT_APPLE` | Apple Sign-In Unity plugin (asmdef `AppleAuth`) |
-| Google | define `AUTHKIT_GOOGLE` | `com.google.signin` (Google Sign-In Unity plugin) |
+| Google | define `AUTHKIT_GOOGLE` | `com.google.signin` — **must be the Thaina fork** `https://github.com/Thaina/google-signin-unity.git#newmigration` (the upstream Google plugin is outdated and won't compile/run with current Unity) |
 
 Neither Apple nor Google SDK is on the Unity registry, so AuthKit can't auto-resolve them —
 install the one(s) you need and add the matching define.
@@ -39,7 +39,11 @@ install the one(s) you need and add the matching define.
    ```
 3. **Install the provider SDK(s)** you want and add the define(s):
    - Apple → install the Apple Sign-In plugin, add `AUTHKIT_APPLE` to *Project Settings ▸ Player ▸ Scripting Define Symbols*.
-   - Google → `"com.google.signin": "https://github.com/Thaina/google-signin-unity.git#newmigration"`, add `AUTHKIT_GOOGLE`.
+   - Google → use the **Thaina fork** (required):
+     ```json
+     "com.google.signin": "https://github.com/Thaina/google-signin-unity.git#newmigration"
+     ```
+     then add `AUTHKIT_GOOGLE`.
 
 ## Usage
 
@@ -77,5 +81,24 @@ and any UI. See the **App Auth Adapter** sample for a template.
 - Verify on **device** (Apple sign-in does not work in the Editor; Google needs a real build
   for the native flow).
 
+## Credits & third-party
+
+AuthKit is a thin wrapper — it does **not** bundle the SDKs. You install them yourself, and
+their own licenses apply:
+
+- **Google Sign-In (Unity)** — you must use the fork
+  [**Thaina/google-signin-unity**](https://github.com/Thaina/google-signin-unity) (branch
+  `newmigration`), a maintained fork of Google's
+  [google-signin-unity](https://github.com/googlesamples/google-signin-unity).
+  © Google Inc. / Thaina Yu. Licensed under **Apache-2.0**.
+- **Sign in with Apple (Unity)** — the `AppleAuth` plugin,
+  [lupidan/apple-signin-unity](https://github.com/lupidan/apple-signin-unity).
+  © Daniel Lupiañez Casares. Licensed under the **MIT License**.
+- **UniTask** — [Cysharp/UniTask](https://github.com/Cysharp/UniTask), © Cysharp, Inc.,
+  **MIT License**.
+
+These notices are informational; consult each project's repository for the authoritative
+license text and obligations.
+
 ## License
-See [LICENSE.md](LICENSE.md).
+AuthKit itself: see [LICENSE.md](LICENSE.md) (MIT).
